@@ -1,0 +1,44 @@
+.add-hot-song-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.search-song-input {
+    margin-bottom: 20px;
+}
+
+.search-results-container {
+    margin-top: 20px;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.empty-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #888;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 90px;
+}
+
+.pagination-container button {
+    margin: 0 10px;
+}
+
+.card-content {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    padding: 5px;
+}

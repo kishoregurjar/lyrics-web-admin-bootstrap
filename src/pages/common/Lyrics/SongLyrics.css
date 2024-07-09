@@ -1,0 +1,10 @@
+.gradient-text {
+    background: -webkit-linear-gradient(#2b2ee5, #470147);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+}
+
+.lyrics pre {
+    white-space: pre-wrap;
+}

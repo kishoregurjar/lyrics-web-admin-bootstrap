@@ -1,0 +1,15 @@
+.news-details-container {
+    background-image: radial-gradient(circle, #88eba8, #83eaaf, #7fe8b5, #7ce7bc, #7ae5c1, #7ee5c6, #83e5cb, #89e5d0, #94e7d5, #9fe9da, #aaeadf, #b5ece3);
+    overflow: auto;
+}
+
+.news-car-container {
+    margin-bottom: 25px;
+}
+
+.author,
+.publish-date {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+}

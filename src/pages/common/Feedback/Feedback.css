@@ -1,0 +1,44 @@
+.feedback-card {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.feedback-card:hover {
+    transform: scale(1.05);
+}
+
+.feedback-card-body {
+    text-align: center;
+}
+
+.feedback-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.feedback-card-body {
+    max-height: 300px;
+    min-height: 300px;
+    overflow: auto;
+
+}
+
+.feedback-list-container {
+    height: 500px;
+    overflow-y: auto;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 90%;
+}
