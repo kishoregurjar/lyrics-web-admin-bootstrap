@@ -54,7 +54,7 @@ const TopChartCard = () => {
                                         </Card.Text>
                                         <hr />
                                         <div className="d-flex justify-content-center">
-                                            <Button variant="info" className="mx-2">Top Chart</Button>
+                                            <Button variant="info" className="mx-2" onClick={() => navigate('/top-charts')}>Top Chart</Button>
                                             <Button variant="warning" className="mx-2" onClick={() => navigateToLyrics(song.isrcs)}>Get Lyrics</Button>
                                         </div>
                                     </Card.Body>
