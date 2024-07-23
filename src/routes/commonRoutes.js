@@ -6,13 +6,14 @@ import NewsPage from '../pages/common/NewsPage/NewsPage';
 import NewsDetails from '../pages/common/NewsPage/NewsDetails';
 import Testimonials from '../pages/common/Testimonials/Testimonials';
 import Feedback from '../pages/common/Feedback/Feedback';
-import TopChartCard from '../pages/common/TopChart/TopChartCard';
 import HotSongs from '../pages/common/HotSongs/HotSongs';
 import TopChartPage from '../pages/common/TopChartPage/TopChartPage';
 import AddNews from '../pages/common/NewsPage/AddNews';
 import AddTestimonial from '../pages/common/Testimonials/AddTestimonial';
 import DisplayLyrics from '../pages/common/Lyrics/DisplayLyrics';
 import AddHotSong from '../pages/common/HotSongs/AddHotSong';
+import AlbumsSongs from '../pages/common/AlbumsSongs/AlbumsSongs';
+import ArtistSongs from '../pages/common/ArtistSongs/ArtistSongs';
 
 
 const commonRoutes = [
@@ -27,6 +28,8 @@ const commonRoutes = [
     <Route key="add-news" path={ROUTE_CONSTANT.COMMON.ADD_NEWS} element={<ProtectedRoute element={AddNews} />} />,
     <Route key="add-testimonial" path={ROUTE_CONSTANT.COMMON.ADD_TESTIMONIAL} element={<ProtectedRoute element={AddTestimonial} />} />,
     <Route key="song-lyrics" path={ROUTE_CONSTANT.COMMON.SONG_LYRICS} element={<ProtectedRoute element={DisplayLyrics} />} />,
+    <Route key="albums-songs" path={ROUTE_CONSTANT.COMMON.ALBUMS_SONGS} element={<ProtectedRoute element={AlbumsSongs} />} />,
+    <Route key="artist-songs" path={ROUTE_CONSTANT.COMMON.ARTIST_SONGS} element={<ProtectedRoute element={ArtistSongs} />} />,
 
 ]
 

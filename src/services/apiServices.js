@@ -392,10 +392,10 @@ async function displayLyrics(payload, config, navigate) {
             config
         )
         if (status === 200 && data) {
-            toast.success(data.message)
+            // toast.success(data.message)
             return data
         } else {
-            toast.error(data.message)
+            // toast.error(data.message)
             return false;
         }
     } catch (error) {
@@ -423,6 +423,42 @@ async function addHotSongs(payload = {}, config = {}, navigate) {
     }
 }
 
+async function albumSongs(payload, config, navigate) {
+    try {
+        const { data, status } = await makeRequest(
+            "GET",
+            `/admin/album/songs?albumId=${payload.albumId}`,
+            {},
+            config
+        );
+        if (status === 200 && data) {
+            return data;
+        } else {
+            return false
+        }
+    } catch (error) {
+        handleApiError(error)
+    }
+}
+
+async function artistSongs(payload, config, navigate) {
+    try {
+        const { data, status } = await makeRequest(
+            "GET",
+            `/admin//artist/song?artistId=${payload.artistId}&page=${payload.page}`,
+            {},
+            config
+        );
+        if (status === 200 && data) {
+            return data;
+        } else {
+            return false
+        }
+    } catch (error) {
+        handleApiError(error)
+    }
+}
+
 export const allAPiServicesCall = {
     loginAdmin,
     getProfileDetails,
@@ -445,6 +481,8 @@ export const allAPiServicesCall = {
     deleteTopChart,
     getFeedback,
     displayLyrics,
-    addHotSongs
+    addHotSongs,
+    albumSongs,
+    artistSongs
 }
 

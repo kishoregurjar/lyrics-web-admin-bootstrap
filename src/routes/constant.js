@@ -10,7 +10,9 @@ export const ROUTE_CONSTANT = {
         TOP_CHARTS: '/top-charts',
         ADD_NEWS: '/add-news',
         SONG_LYRICS: '/lyrics/:isrcKey',
-        ADD_HOT_SONGS: '/add-songs'
+        ADD_HOT_SONGS: '/add-songs',
+        ALBUMS_SONGS: '/album/songs/:albumId',
+        ARTIST_SONGS: '/artist/songs/:artistId'
     },
     AUTH: {
         LOGIN: '/login',
