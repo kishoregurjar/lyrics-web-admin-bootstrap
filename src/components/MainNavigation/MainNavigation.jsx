@@ -312,7 +312,7 @@ const MainNavigation = () => {
             path = `/lyrics/${isrc}`;
         } else if (searchType === 'artist') {
             const artistId = result.id;
-            path = `/artist/songs/${artistId}`;
+            path = `/artist/albums/${artistId}`;
         } else if (searchType === 'album') {
             const albumId = result.id;
             path = `/album/songs/${albumId}`;

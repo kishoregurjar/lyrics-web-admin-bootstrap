@@ -16,11 +16,11 @@ const ArtistAlbums = () => {
     const [albums, setAlbums] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     const fetchAlbums = async (pageNumber) => {
         try {
-            setLoading(true)
+            setLoading(true);
             const response = await allAPiServicesCall.artistSongs({ artistId: artistId, page: pageNumber }, getConfig());
             if (response && response.success) {
                 setAlbums(response.data);
@@ -32,9 +32,9 @@ const ArtistAlbums = () => {
         } catch (error) {
             console.log(error, "Error API in fetching");
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
-    }
+    };
 
     useEffect(() => {
         fetchAlbums(page);
@@ -42,26 +42,34 @@ const ArtistAlbums = () => {
 
     const handleCardClick = (albumId) => {
         navigate(`/album/songs/${albumId}`);
-    }
+    };
 
     const handlePageChange = (newPage) => {
-        setPage(newPage);
-    }
+        if (newPage >= 1 && newPage <= totalPages) {
+            setPage(newPage);
+        }
+    };
 
     const renderPagination = () => {
-        const items = [];
-        for (let number = 1; number <= totalPages; number++) {
-            items.push(
-                <Pagination.Item
-                    key={number}
-                    active={number === page}
-                    onClick={() => handlePageChange(number)}
+        return (
+            <Pagination>
+                <Pagination.Prev
+                    onClick={() => handlePageChange(page - 1)}
+                    disabled={page === 1}
                 >
-                    {number}
+                    Previous
+                </Pagination.Prev>
+                <Pagination.Item disabled>
+                    Page {page} of {totalPages}
                 </Pagination.Item>
-            );
-        }
-        return <Pagination>{items}</Pagination>;
+                <Pagination.Next
+                    onClick={() => handlePageChange(page + 1)}
+                    disabled={page === totalPages}
+                >
+                    Next
+                </Pagination.Next>
+            </Pagination>
+        );
     };
 
     return (
@@ -70,38 +78,39 @@ const ArtistAlbums = () => {
                 <div className="spinner-container">
                     <div className="spinner"></div>
                 </div>
-            ) : <Container className='mb-5'>
-                <Row>
-                    {albums.length > 0 ? (
-                        albums.map((album) => (
-                            <Col key={album.id} md={4}>
-                                <Card>
-                                    <Card.Img variant="top" src={album.coverImageUrl} />
-                                    <Card.Body>
-                                        <img src={album?.images[0]?.url} alt="" height="200px" width="390px" />
-                                        <Card.Title className='my-2'>{album.name}</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">Release Date: {album.release_date}</Card.Subtitle>
-                                        <p>Total tracks : {album.total_tracks}</p>
-                                        <Button variant="primary" onClick={() => handleCardClick(album.id)}>View Details</Button>
-                                    </Card.Body>
-                                </Card>
+            ) : (
+                <Container className='mb-5'>
+                    <Row>
+                        {albums.length > 0 ? (
+                            albums.map((album) => (
+                                <Col key={album.id} md={4}>
+                                    <Card>
+                                        <Card.Img variant="top" src={album.coverImageUrl} />
+                                        <Card.Body>
+                                            <img src={album?.images[0]?.url} alt="" height="200px" width="390px" />
+                                            <Card.Title className='my-2'>{album.name}</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">Release Date: {album.release_date}</Card.Subtitle>
+                                            <p>Total tracks: {album.total_tracks}</p>
+                                            <Button variant="primary" onClick={() => handleCardClick(album.id)}>View Details</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))
+                        ) : (
+                            <Col>
+                                <p>No albums found.</p>
                             </Col>
-                        ))
-                    ) : (
-                        <Col>
-                            <p>No albums found.</p>
+                        )}
+                    </Row>
+                    <Row>
+                        <Col className="d-flex justify-content-center">
+                            {renderPagination()}
                         </Col>
-                    )}
-                </Row>
-                <Row>
-                    <Col className="d-flex justify-content-center">
-                        {renderPagination()}
-                    </Col>
-                </Row>
-            </Container>}
-
+                    </Row>
+                </Container>
+            )}
         </CommonLayout>
     );
-}
+};
 
 export default ArtistAlbums;

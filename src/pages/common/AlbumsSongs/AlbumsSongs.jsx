@@ -85,7 +85,7 @@ const AlbumsSongs = () => {
         try {
             const response = await allAPiServicesCall.albumSongs({ albumId: albumId }, getConfig(), navigate);
             if (response) {
-                setSongs(response);
+                setSongs(response.data);
             } else {
                 setSongs([]);
             }
@@ -115,7 +115,7 @@ const AlbumsSongs = () => {
                                 style={{ cursor: 'pointer' }}
                             >
                                 <div className="d-flex w-100 justify-content-between">
-                                    <h5 className="mb-1" style={{ color: "#5072A7" }}>{song.name}</h5>
+                                    <h5 className="mb-1" style={{ color: "#13274F" }}>{song.name}</h5>
                                     <small>{Math.floor(song.duration_ms / 60000)}:{Math.floor((song.duration_ms % 60000) / 1000).toString().padStart(2, '0')} minutes</small>
                                 </div>
                                 <p className="mb-1">

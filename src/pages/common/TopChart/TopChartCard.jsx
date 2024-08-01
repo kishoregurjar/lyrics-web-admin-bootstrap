@@ -44,7 +44,7 @@ const TopChartCard = () => {
                         {songs.map((song, index) => (
                             <Col key={index} xs={12} sm={6} md={4} lg={3} style={{ marginBottom: "3rem" }}>
                                 <Card style={{ width: '90%', margin: 'auto' }}>
-                                    <Card.Img variant="top" src="assets/phrase-top-10-over-abstract-260nw-2211838561 (1).webp" />
+                                    <Card.Img variant="top" src={song.image} />
                                     <Card.Body>
                                         <Card.Title className='text-center'>Song Title : {song.title}</Card.Title>
                                         <Card.Text className='text-center py-2'>Artists :

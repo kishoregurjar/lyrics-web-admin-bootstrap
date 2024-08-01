@@ -37,13 +37,13 @@ const LoginPage = () => {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true)
         const errors = validate();
         if (Object.keys(errors).length > 0) {
             setErrors(errors);
             return;
         }
 
+        setLoading(true)
         try {
             await allAPiServicesCall.loginAdmin({ email, password }, getConfig(), navigate);
         } catch (error) {

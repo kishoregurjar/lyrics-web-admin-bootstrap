@@ -59,7 +59,7 @@ const HotSongs = () => {
                         {songs.map((song, index) => (
                             <Col key={index} xs={12} sm={6} md={4} lg={3} style={{ marginBottom: "30px" }}>
                                 <Card style={{ width: '90%', margin: 'auto' }}>
-                                    <Card.Img variant="top" src="assets/music.png" />
+                                    <Card.Img variant="top" src={song.image} />
                                     <Card.Body>
                                         <Card.Title className='text-center'>Song Title : {song.title}</Card.Title>
                                         <Card.Text className='text-center py-2'>Artists :
@@ -69,7 +69,7 @@ const HotSongs = () => {
                                         </Card.Text>
                                         <div className="d-flex justify-content-center">
                                             <Button variant="danger" className="mx-2" onClick={() => handleOnDelete(song._id)}>Delete Album</Button>
-                                            <Button variant="info" className="mx-2" onClick={() => navigateToLyrics(song.isrcs)}>Get Lyrics</Button>
+                                            <Button variant="info" className="mx-2" onClick={() => navigateToLyrics(song.isrc)}>Get Lyrics</Button>
                                         </div>
                                     </Card.Body>
                                 </Card>

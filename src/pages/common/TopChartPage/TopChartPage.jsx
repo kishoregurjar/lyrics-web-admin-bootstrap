@@ -45,7 +45,7 @@ const TopChartPage = () => {
         <CommonLayout>
             <hr />
             <ButtonGroup className='d-flex text-center w-25 m-auto mt-2'>
-                <Button variant='primary' onClick={() => { navigate('/add-songs') }}>Add Hot Songs</Button>
+                <Button variant='primary' onClick={() => { navigate('/add-songs') }}>Add Top Charts</Button>
             </ButtonGroup>
             <div style={{ textAlign: "center", marginTop: '15px', fontWeight: "900", fontSize: "20px" }}>Top Charts</div>
             {loading ? (
@@ -60,7 +60,7 @@ const TopChartPage = () => {
                         {songs.map((song, index) => (
                             <Col key={index} xs={12} sm={6} md={4} lg={3} style={{ marginBottom: "30px" }}>
                                 <Card style={{ width: '90%', margin: 'auto' }}>
-                                    <Card.Img variant="top" src="assets/phrase-top-10-over-abstract-260nw-2211838561 (1).webp" />
+                                    <Card.Img variant="top" src={song.image} />
                                     <Card.Body>
                                         <Card.Title className='text-center'>Song Title : {song.title}</Card.Title>
                                         <Card.Text className='text-center py-2'>Artists :
