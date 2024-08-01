@@ -55,7 +55,7 @@ const HotSongCard = () => {
                                         <hr />
                                         <div className="d-flex justify-content-center">
                                             <Button variant="success" className="mx-2" onClick={() => navigate(ROUTE_CONSTANT.COMMON.HOT_SONGS)}>Hot Albums</Button>
-                                            <Button variant="warning" className="mx-2" onClick={() => navigateToLyrics(song.isrcs)
+                                            <Button variant="warning" className="mx-2" onClick={() => navigateToLyrics(song.isrc)
                                             }>Get Lyrics</Button>
                                         </div>
                                     </Card.Body>

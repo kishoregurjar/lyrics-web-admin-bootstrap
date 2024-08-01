@@ -70,7 +70,7 @@ const TopChartPage = () => {
                                         </Card.Text>
                                         <div className="d-flex justify-content-center">
                                             <Button variant="danger" className="mx-2" onClick={() => handleOnDelete(song._id)}>Delete Song</Button>
-                                            <Button onClick={() => navigateToLyrics(song.isrcs)} variant="primary" className="mx-2">Get Lyrics</Button>
+                                            <Button onClick={() => navigateToLyrics(song.isrc)} variant="primary" className="mx-2">Get Lyrics</Button>
                                         </div>
                                     </Card.Body>
                                 </Card>
