@@ -54,15 +54,27 @@ const LoginPage = () => {
     };
 
     return (
-        <CommonLayout>
+        <>
+            <div className="main-header-login text-center my-5" style={{ borderRadius: "5px" }}>
+                {/* <h1 className='text-primary'>Lyricsweb.com</h1> */}
+                <img src="/assets/logo.png" alt="" />
+            </div>
             {loading ? (
                 <div className="spinner-container">
                     <div className="spinner"></div>
                 </div>
             ) : (
-                <div className="d-flex justify-content-center align-items-center mt-5 mb-2 h-100">
+                <div className="d-flex justify-content-center align-items-center mt-4 mb-2 h-100">
                     <CDBContainer>
-                        <CDBCard className="mx-auto" style={{ maxWidth: '30rem', width: '100%' }}>
+                        <CDBCard
+                            className="mx-auto"
+                            style={{
+                                maxWidth: '30rem',
+                                width: '100%',
+                                borderRadius: '10px', // Adjust the border-radius as needed
+                                backgroundColor: '#f0f0f0' // Light gray background color
+                            }}
+                        >
                             <CDBCardBody className="mx-4">
                                 <div className="text-center mt-4 mb-2">
                                     <p className="h4 font-weight-bold">Sign in</p>
@@ -90,7 +102,7 @@ const LoginPage = () => {
                                 </div>
                                 {errors.password && <div className="text-danger">{errors.password}</div>}
                                 <p className="mt-n3 text-end">
-                                    <CDBLink className="p-0 forget-password" to="#">
+                                    <CDBLink className="p-0 forget-password" to="/forget-password">
                                         Forgot Password?
                                     </CDBLink>
                                 </p>
@@ -102,17 +114,13 @@ const LoginPage = () => {
                                     Sign in
                                 </CDBBtn>
                                 <hr />
-                                <p className="text-center">
-                                    <CDBLink className="d-inline p-0 signup-button text-primary" to="/forget-password">
-                                        Forget Password?
-                                    </CDBLink>
-                                </p>
                             </CDBCardBody>
                         </CDBCard>
-                    </CDBContainer >
-                </div >
+                    </CDBContainer>
+                </div>
+
             )}
-        </CommonLayout >
+        </ >
     );
 };
 
