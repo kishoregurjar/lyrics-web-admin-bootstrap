@@ -32,11 +32,20 @@ const ForgetPassword = () => {
     };
 
     return (
-        <CommonLayout>
+        <>
+            <div className="main-header-login text-center my-5" style={{ borderRadius: "5px" }}>
+                {/* <h1 className='text-primary'>Lyricsweb.com</h1> */}
+                <img src="/assets/logo.png" alt="" />
+            </div>
             <div className="d-flex justify-content-center align-items-center mt-5 mb-2 h-100">
                 <CDBContainer>
-                    <CDBCard className="mx-auto" style={{ maxWidth: '30rem', width: '100%' }}>
-                        <CDBCardBody className="mx-4">
+                    <CDBCard className="mx-auto" style={{
+                        maxWidth: '30rem',
+                        width: '100%',
+                        borderRadius: '10px', // Adjust the border-radius as needed
+                        backgroundColor: '#f0f0f0' // Light gray background color
+                    }}>
+                        <CDBCardBody className="mx-4" >
                             <div className="text-center mt-4 mb-2">
                                 <p className="h4 font-weight-bold">Forget Password</p>
                             </div>
@@ -63,7 +72,7 @@ const ForgetPassword = () => {
                     </CDBCard>
                 </CDBContainer>
             </div>
-        </CommonLayout>
+        </>
     );
 };
 
