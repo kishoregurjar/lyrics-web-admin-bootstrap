@@ -238,7 +238,7 @@ const AddHotSong = () => {
             const fetchSearchResults = async () => {
                 try {
                     setLoading(true);
-                    const response = await axios.post('http://localhost:3007/api/v1/user/search', {
+                    const response = await axios.post('https://lyricsweb.com/api/v1/user/search', {
                         type: 'track',
                         query: searchQuery,
                         page: currentPage,

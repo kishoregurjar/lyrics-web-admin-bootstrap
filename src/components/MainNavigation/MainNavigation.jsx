@@ -267,7 +267,7 @@ const MainNavigation = () => {
         if (searchQuery.length > 0) {
             const fetchSearchResults = async () => {
                 try {
-                    const API_URL = 'http://localhost:3007/api/v1/user/search';
+                    const API_URL = 'https://lyricsweb.com/api/v1/user/search';
                     const response = await axios.post(API_URL, {
                         type: searchType,
                         query: searchQuery,
