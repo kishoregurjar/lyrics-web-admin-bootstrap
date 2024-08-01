@@ -46,10 +46,18 @@ const DisplayLyrics = () => {
                     <div className="d-flex justify-content-center">
                         <Spinner animation="border" variant="primary" />
                     </div>
-                ) : songInfo.length === 0 ? (
-                    <Alert variant="danger" className="text-center">
-                        Lyrics Not Found
-                    </Alert>
+                ) : songInfo === null || songInfo.length === 0 ? (
+                    <>
+                        <Card style={{ backgroundColor: '#E5E4E2' }}>
+                            <Card.Body className='text-primary fs-4 p-5'>
+                                Song Lyrics Currently Not Available...
+                            </Card.Body>
+                        </Card>
+
+                        {/* <Alert variant="danger" className="text-center">
+                                Lyrics Not Found
+                            </Alert> */}
+                    </>
                 ) : (
                     <Card className="w-100" style={{ maxWidth: '900px', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px' }}>
                         <Card.Body>
