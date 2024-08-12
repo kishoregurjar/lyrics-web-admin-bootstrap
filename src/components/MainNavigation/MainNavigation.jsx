@@ -236,7 +236,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { faComments, faHeadphonesSimple, faHouse, faIdCard, faMessage, faMusic, faNewspaper, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faComments, faHeadphonesSimple, faHouse, faIdCard, faMessage, faMusic, faNewspaper, faRightFromBracket, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from 'react-router-dom';
 import './MainNavigation.css';
 import { toast } from 'react-toastify';
@@ -457,6 +457,10 @@ const MainNavigation = () => {
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={Link} to="/feedbacks">
                                 <FontAwesomeIcon icon={faMessage} className='navbar-icons' /> Feedback
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item as={Link} to="/add-artist">
+                                <FontAwesomeIcon icon={faUserPlus} className='navbar-icons' /> Add Artist
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={Link} to={ROUTE_CONSTANT.AUTH.LOGIN} onClick={() => {

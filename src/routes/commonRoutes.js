@@ -14,6 +14,7 @@ import DisplayLyrics from '../pages/common/Lyrics/DisplayLyrics';
 import AddHotSong from '../pages/common/HotSongs/AddHotSong';
 import AlbumsSongs from '../pages/common/AlbumsSongs/AlbumsSongs';
 import ArtistSongs from '../pages/common/ArtistSongs/ArtistSongs';
+import AddArtist from '../pages/common/AddArtist/AddArtist';
 
 
 const commonRoutes = [
@@ -30,6 +31,7 @@ const commonRoutes = [
     <Route key="song-lyrics" path={ROUTE_CONSTANT.COMMON.SONG_LYRICS} element={<ProtectedRoute element={DisplayLyrics} />} />,
     <Route key="albums-songs" path={ROUTE_CONSTANT.COMMON.ALBUMS_SONGS} element={<ProtectedRoute element={AlbumsSongs} />} />,
     <Route key="artist-songs" path={ROUTE_CONSTANT.COMMON.ARTIST_SONGS} element={<ProtectedRoute element={ArtistSongs} />} />,
+    <Route key="add-artist" path={ROUTE_CONSTANT.COMMON.ADD_ARTIST} element={<ProtectedRoute element={AddArtist} />} />,
 
 ]
 
