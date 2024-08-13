@@ -69,6 +69,7 @@ function SearchForm() {
             if (response.status === 200) {
                 toast.success(response?.data?.message);
                 setSearchData([])
+                setSearchTerm('')
             } else {
                 toast.error(response?.data?.message)
             }
