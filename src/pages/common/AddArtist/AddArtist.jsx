@@ -3,9 +3,8 @@ import { Button, Form } from 'react-bootstrap';
 import './SearchForm.css';
 import CommonLayout from '../../../layouts/CommonLayout';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { TailSpin } from 'react-loader-spinner';
 
 function SearchForm() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -20,7 +19,7 @@ function SearchForm() {
     const searchItem = async () => {
         setLoading(true);
         try {
-            let response = await axios.post('http://localhost:3007/api/v1/user/search', {
+            let response = await axios.post('https://lyricsweb.com/api/v1/user/search', {
                 type: "artist",
                 query: searchTerm,
                 page: "1",
@@ -62,7 +61,7 @@ function SearchForm() {
 
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:3007/api/v1/admin/upload-artist-csv-file', formData, {
+            const response = await axios.post('https://lyricsweb.com/api/v1/admin/upload-artist-csv-file', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -75,7 +74,9 @@ function SearchForm() {
             }
         } catch (error) {
             console.error('Error uploading file:', error);
-            toast.error('Error uploading file');
+            toast.error(error?.response?.data?.message);
+            setSearchData([]);
+            setSearchTerm('')
         } finally {
             setLoading(false);
         }
@@ -83,7 +84,6 @@ function SearchForm() {
 
     return (
         <CommonLayout>
-            <ToastContainer />
             {loading && (
                 <div className="spinner-container">
                     <div className="spinner"></div>

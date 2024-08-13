@@ -460,7 +460,7 @@ const MainNavigation = () => {
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={Link} to="/add-artist">
-                                <FontAwesomeIcon icon={faUserPlus} className='navbar-icons' /> Add Artist
+                                <FontAwesomeIcon icon={faUserPlus} className='navbar-icons' /> Add Artist Details
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={Link} to={ROUTE_CONSTANT.AUTH.LOGIN} onClick={() => {
