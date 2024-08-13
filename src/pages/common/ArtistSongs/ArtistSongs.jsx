@@ -14,38 +14,42 @@ const ArtistAlbums = () => {
     const { artistId } = useParams();
     const navigate = useNavigate();
     const [albums, setAlbums] = useState([]);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(1); // Ensure it's initialized to 1
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(true);
 
-    const fetchAlbums = async (pageNumber) => {
+    const fetchAlbums = async (pageNumber = 1) => { // Default to page 1
         try {
+            console.log("Fetching albums for page:", pageNumber); // Debugging
             setLoading(true);
-            const response = await allAPiServicesCall.artistSongs({ artistId: artistId, page: pageNumber }, getConfig());
+            const response = await allAPiServicesCall.artistSongs({ artistId, page: pageNumber }, getConfig());
             if (response && response.success) {
                 setAlbums(response.data);
-                setPage(response.page);
-                setTotalPages(response.totalPages);
+                setPage(response.page || 1); // Ensure page is set correctly
+                setTotalPages(response.totalPages || 1); // Default to 1 if undefined
             } else {
                 setAlbums([]);
             }
         } catch (error) {
-            console.log(error, "Error API in fetching");
+            console.error("Error fetching albums:", error);
         } finally {
             setLoading(false);
         }
     };
 
     useEffect(() => {
-        fetchAlbums(page);
-    }, [artistId, page]);
+        if (artistId) { // Check if artistId is defined
+            fetchAlbums(page);
+        }
+    }, [page, artistId]);
 
     const handleCardClick = (albumId) => {
         navigate(`/album/songs/${albumId}`);
     };
 
     const handlePageChange = (newPage) => {
-        if (newPage >= 1 && newPage <= totalPages) {
+        console.log("Current page:", page, "New page:", newPage); // Debugging
+        if (newPage && newPage >= 1 && newPage <= totalPages) {
             setPage(newPage);
         }
     };
