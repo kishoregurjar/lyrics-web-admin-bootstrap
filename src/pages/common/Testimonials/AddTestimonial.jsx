@@ -38,7 +38,7 @@ const AddTestimonial = () => {
             maxSizeMB: 1, // More aggressive compression
             maxWidthOrHeight: 1024, // Reduce dimensions further
             useWebWorker: true, // Enable web worker for faster processing
-            fileType: imageFile.type, // Retain original file type
+            fileType: imageFile?.type, // Retain original file type
             maxIteration: 10, // Maximum number of compression iterations
             initialQuality: 0.6, // Start with lower quality to speed up
         };
