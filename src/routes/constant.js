@@ -12,7 +12,7 @@ export const ROUTE_CONSTANT = {
         SONG_LYRICS: '/lyrics/:isrcKey',
         ADD_HOT_SONGS: '/add-songs',
         ALBUMS_SONGS: '/album/songs/:albumId',
-        ARTIST_SONGS: '/artist/albums/:artistId',
+        ARTIST_SONGS: '/artist/albums/:artistid',
         ADD_ARTIST: '/add-artist'
     },
     AUTH: {

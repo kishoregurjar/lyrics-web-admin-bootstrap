@@ -5,29 +5,30 @@ import ExampleCarouselImage from './ExampleCarouselImage';
 const imageData = [
     {
         src: "/assets/BannerAboutUs.png",
-        alt: "First slide",
-        label: "First slide label",
-        caption: "Nulla vitae elit libero, a pharetra augue mollis interdum."
+        alt: "Discover Our Journey",
+        label: "Our Story",
+        caption: "Explore the evolution of our music and the stories behind our hits."
     },
     {
         src: "/assets/BannerAlbums.png",
-        alt: "Second slide",
-        label: "Second slide label",
-        caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        alt: "Our Latest Albums",
+        label: "New Releases",
+        caption: "Dive into our latest albums and discover fresh sounds and rhythms."
     },
     {
         src: "/assets/BannerContactUs.png",
-        alt: "Third slide",
-        label: "Third slide label",
-        caption: "Praesent commodo cursus magna, vel scelerisque nisl consectetur."
+        alt: "Connect With Us",
+        label: "Get in Touch",
+        caption: "Have questions or want to collaborate? Reach out and let’s connect."
     },
     {
         src: "/assets/BannerLyrics.png",
-        alt: "Fourth slide",
-        label: "Fourth slide label",
-        caption: "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh."
+        alt: "Lyrics for Every Song",
+        label: "Song Lyrics",
+        caption: "Find the lyrics to your favorite tracks and sing along with every word."
     }
 ];
+
 
 const CarouselComponent = () => {
     const [index, setIndex] = useState(0);

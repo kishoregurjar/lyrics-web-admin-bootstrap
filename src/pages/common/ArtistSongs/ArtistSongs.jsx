@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { allAPiServicesCall } from '../../../services/apiServices';
 import { getConfig } from '../../../services/apiUtils';
 import Card from 'react-bootstrap/Card';
@@ -11,22 +11,23 @@ import Pagination from 'react-bootstrap/Pagination';
 import CommonLayout from '../../../layouts/CommonLayout';
 
 const ArtistAlbums = () => {
-    const { artistId } = useParams();
+    const { artistid } = useParams();
+    const location = useLocation()
     const navigate = useNavigate();
+    const artistId = location?.state?.artistId || artistid
     const [albums, setAlbums] = useState([]);
-    const [page, setPage] = useState(1); // Ensure it's initialized to 1
+    const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(true);
 
-    const fetchAlbums = async (pageNumber = 1) => { // Default to page 1
+    const fetchAlbums = async (pageNumber = 1) => {
         try {
-            console.log("Fetching albums for page:", pageNumber); // Debugging
             setLoading(true);
             const response = await allAPiServicesCall.artistSongs({ artistId, page: pageNumber }, getConfig());
             if (response && response.success) {
                 setAlbums(response.data);
-                setPage(response.page || 1); // Ensure page is set correctly
-                setTotalPages(response.totalPages || 1); // Default to 1 if undefined
+                setPage(response.page || 1);
+                setTotalPages(response.totalPages || 1);
             } else {
                 setAlbums([]);
             }
@@ -38,7 +39,7 @@ const ArtistAlbums = () => {
     };
 
     useEffect(() => {
-        if (artistId) { // Check if artistId is defined
+        if (artistId) {
             fetchAlbums(page);
         }
     }, [page, artistId]);
@@ -48,7 +49,6 @@ const ArtistAlbums = () => {
     };
 
     const handlePageChange = (newPage) => {
-        console.log("Current page:", page, "New page:", newPage); // Debugging
         if (newPage && newPage >= 1 && newPage <= totalPages) {
             setPage(newPage);
         }
