@@ -85,7 +85,7 @@ const ArtistAlbums = () => {
             ) : (
                 <Container className='mb-5'>
                     <Row>
-                        {albums.length > 0 ? (
+                        {albums && albums.length > 0 ? (
                             albums.map((album) => (
                                 <Col key={album.id} md={4}>
                                     <Card>
