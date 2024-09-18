@@ -50,7 +50,7 @@ const AddHotAlbum = () => {
             const fetchSearchResults = async () => {
                 try {
                     setLoading(true);
-                    const response = await axios.post('http://lyricsweb.com/api/v1/user/search', {
+                    const response = await axios.post('https://lyricsweb.com/api/v1/user/search', {
                         type: 'album',  // Change to search for albums instead of tracks
                         query: searchQuery,
                         page: currentPage,
