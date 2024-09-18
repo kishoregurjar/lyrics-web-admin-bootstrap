@@ -15,6 +15,7 @@ import AddHotSong from '../pages/common/HotSongs/AddHotSong';
 import AlbumsSongs from '../pages/common/AlbumsSongs/AlbumsSongs';
 import ArtistSongs from '../pages/common/ArtistSongs/ArtistSongs';
 import AddArtist from '../pages/common/AddArtist/AddArtist';
+import AddHotAlbum from '../pages/common/HotAlbum/AddHotAlbum';
 
 
 const commonRoutes = [
@@ -25,6 +26,7 @@ const commonRoutes = [
     <Route key="feedbacks" path={ROUTE_CONSTANT.COMMON.FEEDBACKS} element={<ProtectedRoute element={Feedback} />} />,
     <Route key="hot-songs" path={ROUTE_CONSTANT.COMMON.HOT_SONGS} element={<ProtectedRoute element={HotSongs} />} />,
     <Route key="add-hot-songs" path={ROUTE_CONSTANT.COMMON.ADD_HOT_SONGS} element={<ProtectedRoute element={AddHotSong} />} />,
+    <Route key="add-hot-songs" path={ROUTE_CONSTANT.COMMON.ADD_HOT_ALBUM} element={<ProtectedRoute element={AddHotAlbum} />} />,
     <Route key="top-charts" path={ROUTE_CONSTANT.COMMON.TOP_CHARTS} element={<ProtectedRoute element={TopChartPage} />} />,
     <Route key="add-news" path={ROUTE_CONSTANT.COMMON.ADD_NEWS} element={<ProtectedRoute element={AddNews} />} />,
     <Route key="add-testimonial" path={ROUTE_CONSTANT.COMMON.ADD_TESTIMONIAL} element={<ProtectedRoute element={AddTestimonial} />} />,

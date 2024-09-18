@@ -423,6 +423,26 @@ async function addHotSongs(payload = {}, config = {}, navigate) {
     }
 }
 
+async function addHotAlbums(payload = {}, config = {}, navigate) {
+    try {
+        const { data, status } = await makeRequest(
+            "POST",
+            `/admin/add-actual-hot-album`,
+            payload,
+            config
+        );
+        if (status === 201 && data) {
+            toast.success(data.message);
+            navigate(ROUTE_CONSTANT.COMMON.HOT_ALBUMS);
+            return data;
+        } else {
+            toast.error(data.message);
+        }
+    } catch (error) {
+        handleApiError(error);
+    }
+}
+
 async function albumSongs(payload, config, navigate) {
     try {
         const { data, status } = await makeRequest(
@@ -483,6 +503,7 @@ export const allAPiServicesCall = {
     displayLyrics,
     addHotSongs,
     albumSongs,
-    artistSongs
+    artistSongs,
+    addHotAlbums
 }
 

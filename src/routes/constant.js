@@ -11,6 +11,7 @@ export const ROUTE_CONSTANT = {
         ADD_NEWS: '/add-news',
         SONG_LYRICS: '/lyrics/:isrcKey',
         ADD_HOT_SONGS: '/add-songs',
+        ADD_HOT_ALBUM: '/add-hot-album',
         ALBUMS_SONGS: '/album/songs/:albumId',
         ARTIST_SONGS: '/artist/albums/:artistid',
         ADD_ARTIST: '/add-artist'

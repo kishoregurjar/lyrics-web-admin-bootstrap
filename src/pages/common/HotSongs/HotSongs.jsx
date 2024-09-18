@@ -55,7 +55,7 @@ const HotSongs = () => {
     return (
         <CommonLayout>
             <ButtonGroup className='d-flex text-center w-25 m-auto mt-2'>
-                <Button variant='primary' onClick={() => { navigate('/add-songs') }}>Add Hot Songs</Button>
+                <Button variant='primary' onClick={() => { navigate('/add-hot-album') }}>Add Hot Songs</Button>
             </ButtonGroup>
             <div style={{ textAlign: "center", marginTop: '15px', fontWeight: "900", fontSize: "20px" }}>Hot Songs</div>
             {loading ? (

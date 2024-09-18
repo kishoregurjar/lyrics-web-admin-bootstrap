@@ -310,11 +310,11 @@ const AddHotSong = () => {
                                         <Card.Body>
                                             <Card.Title>{result?.name}</Card.Title>
                                             <Card.Text>Artist: {result?.artists.map(a => a.name).join(', ')}</Card.Text>
-                                            <Form.Check
+                                            {/* <Form.Check
                                                 type="checkbox"
                                                 label="Hot Album"
                                                 onChange={(e) => handleCheckboxChange(e, 'hotAlbum')}
-                                            />
+                                            /> */}
                                             <Form.Check
                                                 type="checkbox"
                                                 label="Top Chart"
