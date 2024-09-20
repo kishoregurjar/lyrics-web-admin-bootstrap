@@ -948,7 +948,7 @@ const MainNavigation = () => {
                             <FontAwesomeIcon className="navbar-icons" icon={faComments} /> Testimonials
                         </Nav.Link>
                         <Nav.Link as={Link} to="/hot-songs" className="nav-link-hover">
-                            <FontAwesomeIcon className="navbar-icons" icon={faHeadphonesSimple} /> Hot Songs
+                            <FontAwesomeIcon className="navbar-icons" icon={faHeadphonesSimple} /> Hot Albums
                         </Nav.Link>
                         <Nav.Link as={Link} to="/top-charts" className="nav-link-hover">
                             <FontAwesomeIcon className="navbar-icons" icon={faMusic} /> Top Charts

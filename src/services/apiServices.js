@@ -274,7 +274,7 @@ async function getHotSongCard(payload = {}, config = {}, navigate) {
     try {
         const { data, status } = await makeRequest(
             "GET",
-            "/admin/get-hot-album",
+            "/admin/get-actual-hot-album",
             payload,
             config
         );
@@ -336,7 +336,7 @@ async function deleteTopChart(payload = {}, config = {}, navigate) {
         );
         if (status === 200 && data) {
             toast.success(data.message);
-            navigate(ROUTE_CONSTANT.COMMON.TOP_CHART);
+            navigate(ROUTE_CONSTANT.COMMON.TOP_CHARTS);
             return data;
         } else {
             toast.error(data.message);
@@ -479,6 +479,26 @@ async function artistSongs(payload, config, navigate) {
     }
 }
 
+async function deleteActualHotAlbum(payload = {}, config = {}, navigate) {
+    try {
+        const { data, status } = await makeRequest(
+            "DELETE",
+            `/admin/delete-actual-hot-album?albumId=${payload.hotSongId}`,
+            payload,
+            config
+        );
+        if (status === 200 && data) {
+            toast.success(data.message);
+            navigate(ROUTE_CONSTANT.COMMON.HOT_ALBUMS);
+            return data;
+        } else {
+            toast.error(data.message);
+        }
+    } catch (error) {
+        handleApiError(error);
+    }
+}
+
 export const allAPiServicesCall = {
     loginAdmin,
     getProfileDetails,
@@ -504,6 +524,7 @@ export const allAPiServicesCall = {
     addHotSongs,
     albumSongs,
     artistSongs,
-    addHotAlbums
+    addHotAlbums,
+    deleteActualHotAlbum
 }
 

@@ -1,62 +1,63 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row, Button } from 'react-bootstrap';
 import { allAPiServicesCall } from '../../services/apiServices';
-import { getAuthConfig } from '../../services/apiUtils'
+import { getAuthConfig } from '../../services/apiUtils';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE_CONSTANT } from '../../routes/constant';
 
-const HotSongCard = () => {
-    const [songs, setSongs] = useState([]);
+const HotAlbumCard = () => {
+    const [albums, setAlbums] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
-    const getHotSongs = async () => {
+    const getHotAlbums = async () => {
         try {
             const response = await allAPiServicesCall.getHotSongCard({}, getAuthConfig(), navigate);
-            setSongs(response.data.slice(0, 4));
+            setAlbums(response.data.slice(0, 4)); // Limit to 4 albums
         } catch (error) {
             console.log("error:", error);
         } finally {
             setLoading(false);
         }
-    }
+    };
 
     useEffect(() => {
-        getHotSongs();
+        getHotAlbums();
     }, []);
 
-    const navigateToLyrics = (isrc) => {
-        navigate(`/lyrics/${isrc}`);
+    const navigateToAlbum = (albumId) => {
+        navigate(`/album/songs/${albumId}`);
     };
 
     return (
         <div>
-            <div style={{ textAlign: "center", marginTop: '15px', fontWeight: "900", fontSize: "20px" }}>Hot Songs</div>
+            <div style={{ textAlign: "center", marginTop: '15px', fontWeight: "900", fontSize: "20px" }}>Hot Albums</div>
             {loading ? (
                 <div className="spinner-container">
                     <div className="spinner"></div>
                 </div>
             ) : (
-                songs.length === 0 ? (
+                albums.length === 0 ? (
                     <div style={{ textAlign: "center", marginTop: '20px', fontSize: "16px", color: "gray" }}>No Hot Albums Found</div>
                 ) : (
                     <Row className='justify-content-center mb-1' style={{ marginTop: "10px" }}>
-                        {songs.map((song, index) => (
+                        {albums.map((album, index) => (
                             <Col key={index} xs={12} sm={6} md={4} lg={3} style={{ marginBottom: "10px" }}>
                                 <Card style={{ width: '90%', margin: 'auto' }}>
-                                    <Card.Img variant="top" src={song.image} />
+                                    <Card.Img variant="top" src={album.image} />
                                     <Card.Body>
-                                        <Card.Title className='text-center'>Song Title : {song.title}</Card.Title>
-                                        <Card.Text className='text-center py-2'>Artists :
-                                            {song.artists.join(', ')}
+                                        <Card.Title className='text-center'>Album Title : {album.title}</Card.Title>
+                                        <Card.Text className='text-center py-2'>
+                                            Artists: {album.artists}
                                             <br />
-                                            Duration: {song.duration}
+                                            Release Date: {new Date(album.releaseDate).toLocaleDateString()}
+                                            <br />
+                                            Total Tracks: {album.totalTracks}
                                         </Card.Text>
                                         <hr />
                                         <div className="d-flex justify-content-center">
                                             <Button variant="success" className="mx-2" onClick={() => navigate(ROUTE_CONSTANT.COMMON.HOT_SONGS)}>Hot Albums</Button>
-                                            <Button variant="warning" className="mx-2" onClick={() => navigateToLyrics(song.isrc)
-                                            }>Get Lyrics</Button>
+                                            <Button variant="info" className="mx-2" onClick={() => navigateToAlbum(album.albumId)}>Get Album</Button>
                                         </div>
                                     </Card.Body>
                                 </Card>
@@ -67,6 +68,6 @@ const HotSongCard = () => {
             )}
         </div>
     );
-}
+};
 
-export default HotSongCard;
+export default HotAlbumCard;
